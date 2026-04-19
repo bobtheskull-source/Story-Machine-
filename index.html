@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Story Machine Modern Web</title>
+  <meta name="description" content="Browser test harness for Story Machine" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Story Machine Modern (Web Test)</h1>
+    <p>Create a story disk, edit dictionary, add choices, and play in browser.</p>
+  </header>
+
+  <main class="grid">
+    <section class="card">
+      <h2>Project</h2>
+      <label>Title <input id="title" value="Story Machine Modern" /></label>
+      <div class="row">
+        <button id="newProjectBtn">New Project</button>
+        <button id="downloadBtn">Download Story Disk</button>
+      </div>
+      <label class="fileLabel">Load Story Disk (.json)
+        <input id="loadInput" type="file" accept="application/json" />
+      </label>
+      <pre id="status">Ready.</pre>
+    </section>
+
+    <section class="card">
+      <h2>Write Story</h2>
+      <label>Scene ID <input id="sceneId" placeholder="FOREST" /></label>
+      <label>Scene Text <textarea id="sceneText" rows="4" placeholder="You stand at the forest edge."></textarea></label>
+      <button id="addSceneBtn">Add/Update Scene</button>
+      <hr />
+      <label>From Scene <input id="fromScene" placeholder="START" /></label>
+      <label>Choice Text <input id="choiceText" placeholder="Walk into the forest" /></label>
+      <label>Target Scene <input id="toScene" placeholder="FOREST" /></label>
+      <label>Trigger (optional) <input id="trigger" placeholder="GO FOREST" /></label>
+      <button id="addChoiceBtn">Add Choice</button>
+    </section>
+
+    <section class="card">
+      <h2>Dictionary</h2>
+      <label>Category
+        <select id="dictCategory">
+          <option value="verbs">verbs</option>
+          <option value="nouns">nouns</option>
+          <option value="articles">articles</option>
+        </select>
+      </label>
+      <label>Word <input id="dictWord" placeholder="GO" /></label>
+      <button id="addWordBtn">Add Word</button>
+      <pre id="dictionaryView"></pre>
+    </section>
+
+    <section class="card">
+      <h2>Play</h2>
+      <div id="sceneView"></div>
+      <div id="choiceButtons" class="choices"></div>
+      <label>Command <input id="commandInput" placeholder="CHOOSE 1 or GO FOREST" /></label>
+      <div class="row">
+        <button id="runCommandBtn">Run Command</button>
+        <button id="lookBtn">LOOK</button>
+        <button id="helpBtn">HELP</button>
+        <button id="resetPlayBtn">Reset to START</button>
+      </div>
+      <pre id="playLog"></pre>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
